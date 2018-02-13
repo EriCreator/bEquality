@@ -61,7 +61,7 @@ $(window).on('load', function() {
         var newGreeting = $('#greeting').val(); 
         contractInstance.setGreeting(newGreeting, function(error, txHash) {
             if (error) {
-                var errorMsg = 'error writing new greeting to smart contract: ' + error;
+                var errorMsg = 'error writing new message to smart contract: ' + error;
                 $('#content').text(errorMsg);
                 console.log(errorMsg);
                 return;
