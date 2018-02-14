@@ -11,6 +11,7 @@ contract Survey {
 
     function Survey(address[] addressessOfEmployees) public {
         for (var index = 0; index < addressessOfEmployees.length; index++) {
+        for (uint index = 0; index < addressessOfEmployees.length; index++) {
             isAllowedToSumbitSurvey[addressessOfEmployees[index]] = true;
         }
     }
