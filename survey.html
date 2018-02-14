@@ -14,15 +14,14 @@
         <div class="collapse navbar-collapse" id="navbarColor01">
           <ul class="navbar-nav mr-auto">
             <!-- <li class="nav-item active"> -->
-            <li class="nav-item">
+            <li class="nav-item active">
               <!-- <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a> -->
-              <a class="nav-link" href="index.html">Home</a>
               <a class="nav-link" href="survey.html">Survey</a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="ranking.html">Ranking</a>
             </li>
-            <li class="nav-item active">
+            <li class="nav-item">
               <a class="nav-link" href="about.html">About</a>
             </li>
             <li class="nav-item">
@@ -35,9 +34,15 @@
           </form>
         </div>
       </nav>
-      <h1>About</h1>
-      <h4>Gender Equality Index</h4>
-      <h4>Fair, Cheap, Fast and Transparent Blockchain-Technology</h4>
+      <h1>Survey</h1>
+      <div class="form-group">
+        <input class="form-control form-control-sm" placeholder="enter addresses[]" id="inputSmall" type="text" width="1">
+        <button type="button" class="btn btn-primary">Create Smart Contract</button>
+        <input class="form-control form-control-sm" placeholder="enter hash (IPFS format)" id="inputSmall" type="text" width="1">
+        <button type="button" class="btn btn-primary">Submit to blockchain</button>
+        <input class="form-control form-control-sm" placeholder="enter contract address" id="inputSmall" type="text" width="1">
+        <button type="button" class="btn btn-secondary">List all hashes</button>
+      </div>
       <script src="custom.js"></script>
     </body>
 </html>
