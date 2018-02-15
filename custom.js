@@ -1,6 +1,6 @@
 $(window).on('load', function() {
 
-    var contractAddress = "0x915b5929f44b97bd99b5166f3747a07ff6e5b168"; // in Ropsten testnet!
+    // var contractAddress  = "0x915b5929f44b97bd99b5166f3747a07ff6e5b168"; // in Ropsten testnet!
     var factoryAddress = "0x1c8ee6b443cdf7ac9675fb8e079c02b7ac1e55c7"; // in Ropsten testnet!
 
     var factoryAbi = [
@@ -152,9 +152,6 @@ $(window).on('load', function() {
         console.log(errorMsg);
         return;
     }
-    
-    // create instance of contract object that we use to interface the smart contract
-    var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
 
     var factoryInstance = web3.eth.contract(factoryAbi).at(factoryAddress);
     factoryInstance.getContractAddress.call(0,function(error) {
@@ -212,21 +209,31 @@ $(window).on('load', function() {
     });
 
     $("#enter_IPFS_button").on('click', function(){
-        var newHash = $('#input_IPFS_hash').val(); 
-       $('#input_IPFS_hash').val(""); 
-
-        // submit hash to the smart contract
-        contractInstance.submitResults(newHash, function(error, txHash) {
+        var contractIndex = 1;
+        factoryInstance.getContractAddress(contractIndex, function(error, contractAddress) {
             if (error) {
-                var errorMsg = 'error writing new message to smart contract: ' + error;
-               console.log(errorMsg);
+                console.log("No such contract found");
                 return;
+            } else {
+                console.log("Contract found");
             }
-            //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+            var newHash = $('#input_IPFS_hash').val(); 
+            $('#input_IPFS_hash').val(""); 
+
+            // create instance of contract object that we use to interface the smart contract
+            var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
+
+            // submit hash to the smart contract
+            contractInstance.submitResults(newHash, function(error, txHash) {
+                if (error) {
+                    var errorMsg = 'error writing new message to smart contract: ' + error;
+                console.log(errorMsg);
+                    return;
+                }
+                //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+            });
         });
     });
-
-
 });
 
 function cb(error, response) {
