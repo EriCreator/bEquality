@@ -190,22 +190,32 @@ $(window).on('load', function() {
     $("#getHashForAddress").on('click', function(){
         var newAddr = $('#input_contract_address').val(); 
         $('#input_contract_address').val(""); 
-
-        // var blabla = contractInstance.hashes(newAddr);
-        // alert( "res is " + blabla);
-        // submit hash to the smart contract
-        contractInstance.hashes(newAddr, function(error, resultString) {
+        var contractIndex = 1;
+        factoryInstance.getContractAddress(contractIndex, function(error, contractAddress) {
             if (error) {
-                var errorMsg = 'error writing new message to smart contract: ' + error;
-                console.log(errorMsg);
+                console.log("No such contract found");
                 return;
+            } else {
+                console.log("Contract found");
             }
-            console.log("succesfull GET-REQUEST");
-            alert(resultString);
-            //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
-           
-        });
+            var newHash = $('#input_IPFS_hash').val(); 
+            $('#input_IPFS_hash').val(""); 
 
+            // create instance of contract object that we use to interface the smart contract
+            var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
+
+            // submit hash to the smart contract
+            contractInstance.hashes(newAddr, function(error, resultString) {
+                if (error) {
+                    var errorMsg = 'error writing new message to smart contract: ' + error;
+                    console.log(errorMsg);
+                    return;
+                }
+                console.log("succesfull GET-REQUEST");
+                alert(resultString);
+                //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+            });
+        });
     });
 
     $("#enter_IPFS_button").on('click', function(){
