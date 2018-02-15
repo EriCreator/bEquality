@@ -154,6 +154,7 @@ $(window).on('load', function() {
     }
     
     // create instance of contract object that we use to interface the smart contract
+    var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
 
     var factoryInstance = web3.eth.contract(factoryAbi).at(factoryAddress);
     factoryInstance.getContractAddress.call(0,function(error) {
@@ -209,6 +210,22 @@ $(window).on('load', function() {
         });
 
     });
+
+    $("#enter_IPFS_button").on('click', function(){
+        var newHash = $('#input_IPFS_hash').val(); 
+       $('#input_IPFS_hash').val(""); 
+
+        // submit hash to the smart contract
+        contractInstance.submitResults(newHash, function(error, txHash) {
+            if (error) {
+                var errorMsg = 'error writing new message to smart contract: ' + error;
+               console.log(errorMsg);
+                return;
+            }
+            //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+        });
+    });
+
 
 });
 
