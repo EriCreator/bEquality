@@ -1,13 +1,20 @@
 $(window).on('load', function() {
+<<<<<<< HEAD
 
     // var contractAddress = "0x3150f31a3e352cf314e5a04f33b61dfe8d9a6cad"; // in Ropsten testnet!
     var factoryAddress = "0x1c8ee6b443cdf7ac9675fb8e079c02b7ac1e55c7"; // in Ropsten testnet!
 
     var factoryAbi = [
+=======
+    
+    var contractAddress = "0x915b5929f44b97bd99b5166f3747a07ff6e5b168"; // in Ropsten testnet!
+    var contractAbi = [
+>>>>>>> master
         {
             "constant": true,
             "inputs": [
                 {
+<<<<<<< HEAD
                     "name": "companyID",
                     "type": "uint256"
                 }
@@ -15,10 +22,13 @@ $(window).on('load', function() {
             "name": "getContractAddress",
             "outputs": [
                 {
+=======
+>>>>>>> master
                     "name": "",
                     "type": "address"
                 }
             ],
+<<<<<<< HEAD
             "payable": false,
             "stateMutability": "view",
             "type": "function"
@@ -36,6 +46,13 @@ $(window).on('load', function() {
                 {
                     "name": "",
                     "type": "address"
+=======
+            "name": "hashes",
+            "outputs": [
+                {
+                    "name": "",
+                    "type": "string"
+>>>>>>> master
                 }
             ],
             "payable": false,
@@ -43,6 +60,7 @@ $(window).on('load', function() {
             "type": "function"
         },
         {
+<<<<<<< HEAD
             "constant": false,
             "inputs": [
                 {
@@ -81,6 +99,11 @@ $(window).on('load', function() {
                 }
             ],
             "name": "hashes",
+=======
+            "constant": true,
+            "inputs": [],
+            "name": "hashToaddressessOfEmployees",
+>>>>>>> master
             "outputs": [
                 {
                     "name": "",
@@ -139,7 +162,11 @@ $(window).on('load', function() {
             "stateMutability": "nonpayable",
             "type": "constructor"
         }
+<<<<<<< HEAD
     ];
+=======
+    ]
+>>>>>>> master
 
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
@@ -154,6 +181,7 @@ $(window).on('load', function() {
     }
     
     // create instance of contract object that we use to interface the smart contract
+<<<<<<< HEAD
 
     var factoryInstance = web3.eth.contract(factoryAbi).at(factoryAddress);
     factoryInstance.getContractAddress.call(0,function(error) {
@@ -166,6 +194,20 @@ $(window).on('load', function() {
     });
 
     
+=======
+    var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
+    // contractInstance.getGreeting(function(error, greeting) {
+    //     if (error) {
+    //         var errorMsg = 'error reading greeting from smart contract: ' + error;
+    //         $('#content').text(errorMsg);
+    //         console.log(errorMsg);
+    //         return;
+    //     }
+    //     $('#content').text('Current message: ' + greeting);
+    // });
+    
+    
+>>>>>>> master
     // $('#my-form').on('submit', function(e) {
     //     e.preventDefault(); // cancel the actual submit
     //     var newGreeting = $('#greeting').val(); 
@@ -179,6 +221,7 @@ $(window).on('load', function() {
     //         $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
     //     });
     // });
+<<<<<<< HEAD
 
     $('#contract_creation').on('submit', function(e) {
         e.preventDefault(); // cancel the actual submit
@@ -198,16 +241,46 @@ $(window).on('load', function() {
                 return;
             }
             $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
+=======
+    
+    $("#enter_IPFS_button").on('click', function(){
+        var newHash = $('#input_IPFS_hash').val(); 
+       $('#input_IPFS_hash').val(""); 
+
+        // submit hash to the smart contract
+        contractInstance.submitResults(newHash, function(error, txHash) {
+            if (error) {
+                var errorMsg = 'error writing new message to smart contract: ' + error;
+               console.log(errorMsg);
+                return;
+            }
+            //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+>>>>>>> master
         });
 
         $('#event_logging').text('Init input is: ' + newInitInput);
 
     });
-    
-    $("#enter_IPFS_button").on('click', function(){
-        var newHash = $('#input_IPFS_hash').val(); 
-        $('#test_area').text('The new hash is: ' + newHash);
-        $('#input_IPFS_hash').val(""); 
+
+    $("#getHashForAddress").on('click', function(){
+        var newAddr = $('#input_contract_address').val(); 
+        $('#input_contract_address').val(""); 
+
+        // var blabla = contractInstance.hashes(newAddr);
+        // alert( "res is " + blabla);
+        // submit hash to the smart contract
+        contractInstance.hashes(newAddr, function(error, resultString) {
+            if (error) {
+                var errorMsg = 'error writing new message to smart contract: ' + error;
+                console.log(errorMsg);
+                return;
+            }
+            console.log("succesfull GET-REQUEST");
+            alert(resultString);
+            //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+           
+        });
+
     });
 
 });
