@@ -173,8 +173,9 @@ $(window).on('load', function() {
         var adrtemp = document.getElementById("init_input_2");
         var newAdrList = adrtemp.value.split("\n");
         var newIPFSAdr = $('#init_input_3').val(); 
+        var newContract;
 
-        factoryInstance.createNewSurvey(newCompanyID, newAdrList, newIPFSAdr, function(error, txHash) {
+        newContract = factoryInstance.createNewSurvey(newCompanyID, newAdrList, newIPFSAdr, function(error, txHash) {
             if (error) {
                 var errorMsg = 'error creating new survey (child) contract : ' + error;
                 $('#event_logging').text(errorMsg);
@@ -184,7 +185,7 @@ $(window).on('load', function() {
             $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
         });
 
-        $('#event_logging').text('Init input is: ' + );
+        $('#event_logging').text('Init input is: ' + newContract);
 
     });
 
