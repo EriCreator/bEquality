@@ -22,6 +22,4 @@ contract Survey {
         require(isAllowedToSumbitSurvey[msg.sender]);
         hashes[msg.sender] = myHash;
     }
-
-    
 }
