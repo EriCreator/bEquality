@@ -166,19 +166,42 @@ $(window).on('load', function() {
     });
 
     
-    
-    $('#my-form').on('submit', function(e) {
+    // $('#my-form').on('submit', function(e) {
+    //     e.preventDefault(); // cancel the actual submit
+    //     var newGreeting = $('#greeting').val(); 
+    //     contractInstance.setGreeting(newGreeting, function(error, txHash) {
+    //         if (error) {
+    //             var errorMsg = 'error writing new message to smart contract: ' + error;
+    //             $('#content').text(errorMsg);
+    //             console.log(errorMsg);
+    //             return;
+    //         }
+    //         $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+    //     });
+    // });
+
+    $('#contract_creation').on('submit', function(e) {
         e.preventDefault(); // cancel the actual submit
-        var newGreeting = $('#greeting').val(); 
-        contractInstance.setGreeting(newGreeting, function(error, txHash) {
+
+        var newCompanyID = $('#init_input_1').val(); 
+        var newAdrList = $('#init_input_2').val(); 
+        var newIPFSAdr = $('#init_input_3').val(); 
+
+        alert(typeof $("#init_input_1").val());
+        // + typeof $("#init_input_2").val() + typeof $("#init_input_3").val()
+
+        factoryInstance.createNewSurvey(newCompanyID, newAdrList, newIPFSAdr, function(error, txHash) {
             if (error) {
-                var errorMsg = 'error writing new message to smart contract: ' + error;
-                $('#content').text(errorMsg);
+                var errorMsg = 'error creating new survey (child) contract : ' + error;
+                $('#event_logging').text(errorMsg);
                 console.log(errorMsg);
                 return;
             }
-            $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
+            $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
         });
+
+        $('#event_logging').text('Init input is: ' + newInitInput);
+
     });
     
     $("#enter_IPFS_button").on('click', function(){
