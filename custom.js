@@ -166,20 +166,6 @@ $(window).on('load', function() {
     });
 
     
-    // $('#my-form').on('submit', function(e) {
-    //     e.preventDefault(); // cancel the actual submit
-    //     var newGreeting = $('#greeting').val(); 
-    //     contractInstance.setGreeting(newGreeting, function(error, txHash) {
-    //         if (error) {
-    //             var errorMsg = 'error writing new message to smart contract: ' + error;
-    //             $('#content').text(errorMsg);
-    //             console.log(errorMsg);
-    //             return;
-    //         }
-    //         $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
-    //     });
-    // });
-
     $('#contract_creation').on('submit', function(e) {
         e.preventDefault(); // cancel the actual submit
 
@@ -198,7 +184,7 @@ $(window).on('load', function() {
             $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
         });
 
-        $('#event_logging').text('Init input is: ' + newInitInput);
+        $('#event_logging').text('Init input is: ' + );
 
     });
 
