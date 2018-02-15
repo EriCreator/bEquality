@@ -182,10 +182,10 @@ $(window).on('load', function() {
                 console.log(errorMsg);
                 return;
             }
-            $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
+            $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash + '\nThe survey of your company is at: ' + newContract);
         });
 
-        $('#event_logging').text('Init input is: ' + newContract);
+        $('#event_logging').text('The survey of your company is at: ' + newContract);
 
     });
 
