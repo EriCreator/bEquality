@@ -36,12 +36,18 @@
       </nav>
       <h1>Survey</h1>
       <div class="form-group">
-        <input class="form-control form-control-sm" placeholder="enter addresses[]" id="inputSmall" type="text" width="1">
-        <button type="button" class="btn btn-primary">Create Smart Contract</button>
-        <input class="form-control form-control-sm" placeholder="enter hash (IPFS format)" id="inputSmall" type="text" width="1">
-        <button type="button" class="btn btn-primary">Submit to blockchain</button>
-        <input class="form-control form-control-sm" placeholder="enter participant address" id="inputSmall" type="text" width="1">
-        <button type="button" class="btn btn-secondary">Show Hash</button>
+        <form id="contract_creation">
+            <input class="form-control form-control-sm" placeholder="enter addresses[]" id="input_address_list" type="text" width="1">
+            <button type="button" class="btn btn-primary">Create Smart Contract</button>
+        </form>
+        <form id="enter_IPFS">
+            <input class="form-control form-control-sm" placeholder="enter hash (IPFS format)" id="input_IPFS_hash" type="text" width="1">
+            <button type="button" class="btn btn-primary">Submit to blockchain</button>
+        </form>
+        <form id = "list_hashed">
+            <input class="form-control form-control-sm" placeholder="enter contract address" id="input_contract_address" type="text" width="1">
+            <button type="button" class="btn btn-secondary">List all hashes</button>
+        </form>
       </div>
       <script src="custom.js"></script>
     </body>
