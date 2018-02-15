@@ -180,68 +180,80 @@ $(window).on('load', function() {
                 console.log(errorMsg);
                 return;
             }
-            $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash + '\nThe survey of your company is at: ' + newContract);
+            // $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash + '\nThe survey of your company is at: ' + newContract);
+            $('#event_logging').text('submitted new creation of the survey (child) contract to blockchain, transaction hash: ' + txHash);
+      
         });
 
-        $('#event_logging').text('The survey of your company is at: ' + newContract);
+        // $('#event_logging').text('The survey of your company is at: ' + newContract);
+        $('#event_logging').text('Transacting. . .');
 
     });
 
-    $("#getHashForAddress").on('click', function(){
-        var newAddr = $('#input_contract_address').val(); 
-        $('#input_contract_address').val(""); 
-        var contractIndex = 1;
+    $("#enter_Questions_button").on('click', function(){
+        // var contractIndex = 1;
+        var contractIndex = parseInt($('#input_company_id').val(), 10);
         factoryInstance.getContractAddress(contractIndex, function(error, contractAddress) {
             if (error) {
                 console.log("No such contract found");
                 return;
             } else {
-                console.log("Contract found");
+                console.log("Contract found adress: " + contractAddress);
             }
-            var newHash = $('#input_IPFS_hash').val(); 
-            $('#input_IPFS_hash').val(""); 
-
+            // var newAddr = $('#input_contract_address').val(); 
+            // $('#input_contract_address').val(""); 
+            var one = $("#selection1").val() * 100;
+            var two = $("#selection2").val() * 10;
+            var three = $("#selection3").val();
+            var newHash = (parseInt(one) + parseInt(two) + parseInt(three)).toString();
+            console.log('1: ' + one  + '  2: ' +  two + '  3: ' + three );
             // create instance of contract object that we use to interface the smart contract
-            var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
-
-            // submit hash to the smart contract
-            contractInstance.hashes(newAddr, function(error, resultString) {
-                if (error) {
-                    var errorMsg = 'error writing new message to smart contract: ' + error;
-                    console.log(errorMsg);
-                    return;
-                }
-                console.log("succesfull GET-REQUEST");
-                alert(resultString);
-                //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
-            });
-        });
-    });
-
-    $("#enter_IPFS_button").on('click', function(){
-        var contractIndex = 1;
-        factoryInstance.getContractAddress(contractIndex, function(error, contractAddress) {
-            if (error) {
-                console.log("No such contract found");
-                return;
-            } else {
-                console.log("Contract found");
-            }
-            var newHash = $('#input_IPFS_hash').val(); 
-            $('#input_IPFS_hash').val(""); 
-
-            // create instance of contract object that we use to interface the smart contract
-            var contractInstance = web3.eth.contract(contractAbi).at(contractAddress);
+            var contractInstance = web3.eth.contract(surveyAbi).at(contractAddress);
 
             // submit hash to the smart contract
             contractInstance.submitResults(newHash, function(error, txHash) {
                 if (error) {
                     var errorMsg = 'error writing new message to smart contract: ' + error;
-                console.log(errorMsg);
+                    console.log(errorMsg);
                     return;
+                } else {
+                    console.log('hash stored: ' + newHash);
+                    alert('answers are succesfully stored on the blockchain');
                 }
                 //$('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
             });
+        });
+    });
+
+    $("#getHashForAddress").on('click', function(){
+        // var newAddr = $('#input_contract_address').val(); 
+        // $('#input_contract_address').val(""); 
+        // var contractIndex = 1;
+        var contractIndex = parseInt($('#input_company_id').val(), 10);
+        factoryInstance.getContractAddress(contractIndex, function(error, contractAddress) {
+            if (error) {
+                console.log("No such contract found");
+                return;
+            } else {
+                console.log("Contract found adress: " + contractAddress);
+            }
+            var newAddr = $('#input_contract_address').val(); 
+
+            // create instance of contract object that we use to interface the smart contract
+            var contractInstance = web3.eth.contract(surveyAbi).at(contractAddress);
+
+            // get hash from the smart contract
+            contractInstance.hashes(newAddr, function(error, resultString) {
+                if (error) {
+                    var errorMsg = 'error writing new message to smart contract: ' + error;
+                    console.log(errorMsg);
+                    return;
+                }else {
+                    console.log("succesfully retrieved hash: " + resultString);
+                    alert("selections: " + resultString);
+                }
+            });
+            $('#input_contract_address').val("");  
         });
     });
 });

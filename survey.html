@@ -36,61 +36,70 @@
           </form>
         </div>
       </nav>
-      <div style="margin:2%"> 
+      <div style="margin:1%"> 
           <h1>Survey</h1>
           <!-- <div class="form-group row"> -->
 
-          <div style="margin-top:2%;margin-bottom:2%">
-            <div class="col-md-8">
+          <div>
+          <div class="col-md-8">
               <form id="enter_question1">
                   <span id="ex6CurrentSliderValLabel">I have been working here for</span>
-                  <select class="selectpicker">
-                    <option> less than 1 year</option>
-                    <option> 1- 5 years</option>
-                    <option>more than 5 years</option>
+                  <select class="selectpicker" id="selection1">
+                    <option value="1"> less than 1 year</option>
+                    <option value="2"> 1- 5 years</option>
+                    <option value="3">more than 5 years</option>
                   </select>
                 </form>
-            </div>
+          </div>
+          </div>
 
+          <div style="margin-top:5px;">
             <div class="col-md-8">
               <form id="enter_question2">
-                <span id="ex6CurrentSliderValLabel" style="margin-right:150px">I earn</span>
-                <select class="selectpicker">
-                  <option> less than 40'000 </option>
-                  <option>40'000 - 70'000</option>
-                  <option>70'000 +</option>
+                <span id="ex6CurrentSliderValLabel" style="margin-right:153px">I earn</span>
+                <select class="selectpicker" id="selection2">
+                  <option value="1"> less than 40'000 </option>
+                  <option value="2">40'000 - 70'000</option>
+                  <option value="3">70'000 +</option>
                   </select>
                 </form>
             </div>
-
+            </div>
+            
+          <div style="margin-top:5px;">
             <div class="col-md-8">
               <form id="enter_question3">
-                <span id="ex6CurrentSliderValLabel">My position in the company</span>
-                <select class="selectpicker">
-                  <option>Worker</option>
-                  <option>Junior Manager</option>
-                  <option>C-Suite</option>
-                  </section>
-                  <button type="button" class="btn btn-primary" id="enter_Questions_button">Submit answers to Bloggchain</button>
+                <span id="ex6CurrentSliderValLabel" style="margin-right:5px">My position in the company</span>
+                <select class="selectpicker" id="selection3">
+                  <option value="1">Worker</option>
+                  <option value="2">Junior Manager</option>
+                  <option value="3">C-Suite</option>
+                </select>
               </form>
             </div>
           </div>
 
-            <div id="test_area"></div>
+            <!-- <div id="test_area" style="margin-top:5px;"></div> -->
+            
+          <div style="margin-top:5px;">
             <div class="col-md-8">
               <form id="enter_IPFS">
-                  <input class="form-control form-control-md-8" placeholder="enter company ID" id="input_IPFS_hash" type="text" width="0">
-                  <button type="button" class="btn btn-primary" id="enter_IPFS_button">Submit to blockchain</button>
+                <input style="width:30%" class="form-control form-control-md-2" placeholder="enter companyID (uint format)" id="input_company_id" type="number" width="1">
+                <button style="margin-top:5px;" type="button" class="btn btn-primary" id="enter_Questions_button">Submit answers to Bloggchain</button>
               </form>
             </div>
-
+            </div>
+            
+          
+          <div style="margin-top:40px;">
             <div class="col-md-8">
+              <h6>Retrieve a participants answer from the blockchain (by providing the address)</h6>
               <form id = "list_hashed">
-                  <input class="form-control form-control-md-4" placeholder="enter participants address" id="input_contract_address" type="text" width="1">
-                  <button type="button" class="btn btn-secondary"id="getHashForAddress">List answers</button>
+                  <input style="width:40%" class="form-control form-control-md-4" placeholder="enter participants address" id="input_contract_address" type="text" width="1">
+                  <button style="margin-top:3px;" type="button" class="btn btn-secondary"id="getHashForAddress">List answers</button>
               </form>
             </div>
-          <!-- </div> -->
+          </div>
         </div>
       <script src="custom.js"></script>
     </body>
