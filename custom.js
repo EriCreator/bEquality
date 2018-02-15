@@ -30,7 +30,7 @@ $(window).on('load', function() {
 		"stateMutability": "nonpayable",
 		"type": "function"
 	}
-];
+    ];
 
     // Checking if Web3 has been injected by the browser (Mist/MetaMask)
     if (typeof web3 !== 'undefined') {
@@ -70,17 +70,11 @@ $(window).on('load', function() {
             $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
         });
     });
-
-    $("#enter_IPFS").click(function(){
- 
-        // $(this).hide();
- 
-        // document.getElementById("test_area").text = "This is changed A";
- 
-        // $("#test_area").text('This is changed');
- 
-        alert("This is changed");
- 
+    
+    $("#enter_IPFS_button").on('click', function(){
+        var newHash = $('#input_IPFS_hash').val(); 
+        $('#test_area').text('The new hash is: ' + newHash);
+        $('#input_IPFS_hash').val(""); 
     });
  
 
