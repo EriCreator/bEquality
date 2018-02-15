@@ -183,12 +183,10 @@ $(window).on('load', function() {
     $('#contract_creation').on('submit', function(e) {
         e.preventDefault(); // cancel the actual submit
 
-        var newCompanyID = $('#init_input_1').val(); 
-        var newAdrList = $('#init_input_2').val(); 
+        var newCompanyID = parseInt($('#init_input_1').val(), 10); 
+        var adrtemp = document.getElementById("init_input_2");
+        var newAdrList = adrtemp.value.split("\n");
         var newIPFSAdr = $('#init_input_3').val(); 
-
-        alert(typeof $("#init_input_1").val());
-        // + typeof $("#init_input_2").val() + typeof $("#init_input_3").val()
 
         factoryInstance.createNewSurvey(newCompanyID, newAdrList, newIPFSAdr, function(error, txHash) {
             if (error) {
