@@ -36,25 +36,26 @@
           </form>
         </div>
       </nav>
-      <h1>Survey</h1>
+      <div style="margin:2%"> 
+          <h1>Survey</h1>
+          <!-- <div class="form-group row"> -->
 
-      <!-- <div class="form-group row"> -->
-        
-        <div id="test_area"></div>
-        <div class="col-md-8">
-          <form id="enter_IPFS">
-              <input class="form-control form-control-md-8" placeholder="enter hash (IPFS format)" id="input_IPFS_hash" type="text" width="1">
-              <button type="button" class="btn btn-primary" id="enter_IPFS_button">Submit to blockchain</button>
-          </form>
-        </div>
+            <div id="test_area"></div>
+            <div class="col-md-8">
+              <form id="enter_IPFS">
+                  <input class="form-control form-control-md-8" placeholder="enter hash (IPFS format)" id="input_IPFS_hash" type="text" width="0">
+                  <button type="button" class="btn btn-primary" id="enter_IPFS_button">Submit to blockchain</button>
+              </form>
+            </div>
 
-        <div class="col-md-8">
-          <form id = "list_hashed">
-              <input class="form-control form-control-md-4" placeholder="enter contract address" id="input_contract_address" type="text" width="1">
-              <button type="button" class="btn btn-secondary"id="getHashForAddress">List all hashes</button>
-          </form>
-        </div>
-      <!-- </div> -->
+            <div class="col-md-8">
+              <form id = "list_hashed">
+                  <input class="form-control form-control-md-4" placeholder="enter contract address" id="input_contract_address" type="text" width="1">
+                  <button type="button" class="btn btn-secondary"id="getHashForAddress">List all hashes</button>
+              </form>
+            </div>
+          <!-- </div> -->
+      </div>
       <script src="custom.js"></script>
     </body>
 </html>
