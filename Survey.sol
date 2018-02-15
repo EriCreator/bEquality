@@ -8,9 +8,11 @@ pragma solidity ^0.4.17;
 contract Survey {
     mapping (address => string) public hashes;
     mapping (address => bool) public isAllowedToSumbitSurvey;
+    string hashToaddressessOfEmployees;
 
-    function Survey(address[] addressessOfEmployees) public {
-        for (uint index = 0; index < addressessOfEmployees.length; index++) {
+    function Survey(address[] addressessOfEmployees, string _hashToaddressessOfEmployees) public {
+        hashToaddressessOfEmployees = _hashToaddressessOfEmployees;
+        for (uint256 index = 0; index < addressessOfEmployees.length; index++) {
             isAllowedToSumbitSurvey[addressessOfEmployees[index]] = true;
         }
     }
