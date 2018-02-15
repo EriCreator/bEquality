@@ -69,6 +69,13 @@ $(window).on('load', function() {
             $('#content').text('submitted new message to blockchain, transaction hash: ' + txHash);
         });
     });
+    
+    $("#enter_IPFS").click(function(){
+        // $(this).hide();
+        // document.getElementById("test_area").text = "This is changed A";
+        // $("#test_area").text('This is changed');
+        alert("This is changed");
+    });
 
 });
 
