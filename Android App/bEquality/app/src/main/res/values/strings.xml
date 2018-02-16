@@ -1,0 +1,32 @@
+<resources>
+    <string name="app_name">bEquality</string>
+
+
+
+        <string-array name="age">
+            <item>less than one year</item>
+            <item>between one and five years</item>
+            <item>between five and ten years</item>
+            <item>more than ten years</item>
+        </string-array>
+
+    <string-array name="position">
+        <item>worker</item>
+        <item>line manager</item>
+        <item>junior manager</item>
+        <item>middle manager</item>
+        <item>chief executive officer</item>
+
+    </string-array>
+
+    <string-array name="salary">
+        <item>less than 50000 dollar</item>
+        <item>between 50000 and 75000 dollar</item>
+        <item>between 75000 and 150000 dollar</item>
+        <item>more than 150000 dollar</item>
+
+
+    </string-array>
+
+
+</resources>
