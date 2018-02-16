@@ -1,0 +1,340 @@
+/* ==================================
+  # Team Index Page
+================================== */
+.biodescription h2 {
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #fff;
+}
+.biogrid li {
+  list-style-type: none;
+}
+.biodescription .fa {
+  font-size: 40px;
+  color: #fff;
+}
+.bio-subtitle {
+  font-size: 16px;
+  margin-bottom: 20px;
+  color: #fff;
+}
+.bio-quote {
+  font-size: 16px;
+  font-style: italic;
+  line-height: 25px;
+  color: #fff;
+}
+.imgHolder .description-box {
+  background-color: #00bff3;
+  float: left;
+  height: 60px;
+  padding: 5px 10px;
+  position: absolute;
+}
+.biogrid .animateBottomName {
+  bottom: -70px;
+  color: #fff;
+  -webkit-transition: all 0.3s ease;
+  -moz-transition: all 0.3s ease;
+  -o-transition: all 0.3s ease;
+  -ms-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  width: 100%;
+}
+.dim {
+  opacity: 0.5;
+}
+.biogrid li .biodescription {
+  background-color: #00a7e8;
+  color: #fff;
+  display: none;
+  height: 100%;
+  margin: 0;
+  min-height: 380px;
+  padding: 60px;
+  max-height: 355px;
+}
+.biodescription {
+  padding: 50px 30px 80px;
+}
+.biodescription h2 {
+  font-size: 45px !important;
+  font-weight: 400;
+  line-height: normal;
+  text-transform: uppercase;
+  color: #fff;
+}
+.biodescription p {
+  font-weight: 400;
+}
+.biogrid li:hover .animateBottomName {
+  bottom: -9px;
+}
+.biogrid li .imgHolder {
+  margin: 0;
+  margin-top: 20px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+}
+.biogrid li.col-xs-12 .biodescription {
+  display: block;
+}
+.propertiesLink {
+  background: #fff;
+  color: #666;
+  cursor: pointer;
+  display: block;
+  float: right;
+  padding: 8px 12px;
+  text-decoration: none;
+  width: 175px;
+}
+.propertiesLink:hover {
+  background: #0298C1;
+  color: #fff;
+  text-decoration: none;
+}
+.propertiesLink span {
+  float: right;
+}
+.linkedinLink,
+.mailLink,
+.vCardLink {
+  float: right;
+  display: block;
+  height: 38px;
+  margin-right: 15px;
+  width: 47px;
+}
+.bio-detail .linkedinLink,
+.bio-detail .mailLink,
+.bio-detail .vCardLink,
+.bio-detail .phoneLink,
+.bio-detail .numberSlid {
+  margin-right: 10px;
+}
+.readMoreBox {
+  background-color: #F38B00;
+  color: #FFF;
+  display: block;
+  margin: 20px 0;
+  padding: 5px 10px;
+  text-decoration: none;
+  width: 120px;
+}
+.readMoreBox span {
+  float: right;
+}
+.readMoreBox:hover {
+  background-color: #ff5000;
+  color: #fff;
+  text-decoration: none;
+}
+.col-max-960 h3 {
+  color: #00bff3;
+}
+.biogrid {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+.biogrid li {
+  cursor: pointer;
+  margin: 0;
+  padding: 0;
+  position: relative;
+}
+.biogrid img {
+  width: 380px;
+}
+.biogrid img.close-backex {
+  float: right;
+  width: inherit;
+}
+.phoneLink {
+  display: block;
+  float: right;
+  height: 38px;
+  margin-top: 4px;
+  margin-right: 14px;
+  padding-left: 1px;
+  text-align: center;
+  width: 41px;
+}
+.phoneLink:hover,
+.mailLink:hover {
+  color: #0073B2;
+}
+.closeButtonBio {
+  cursor: pointer;
+  color: #FFF;
+  position: absolute;
+  right: 30px;
+  top: 20px;
+}
+.closeButtonBio:hover {
+  color: #00529A;
+}
+/* ==============================
+# Team Filter
+============================== */
+.input-group input#table_filter {
+  height: 45px;
+  border-radius: 0;
+  border-color: #ccc;
+  line-height: 20px;
+}
+.input-group-btn button#searchBtn {
+  background-color: #00bff3;
+  color: #fff;
+  padding: 1.25rem 2.6rem;
+}
+.team-bottom-section #pagingTotal {
+  margin-top: 38px;
+}
+.team-bottom-section #pagingTotal p {
+  margin-top: 10px;
+  font-size: 14px;
+}
+.team-bottom-section .fa {
+  padding: 3.5px 0;
+}
+.container .pagination {
+  float: right;
+  cursor: pointer;
+}
+.pagination>li:last-child>a,
+.pagination>li:last-child>span {
+  border-radius: 0;
+}
+.team-bottom-section .page_filter,
+.team-blue-border,
+.team-page.filter-bar {
+  margin-top: 30px;
+}
+.selectize-input.items {
+  border-radius: 0;
+}
+.team-page.filter-bar .team-dropdown .selectize-input {
+  height: 45px !important;
+  line-height: 28px;
+}
+.team-dropdown .selectize-input {
+  border-radius: 0;
+}
+/* ===================================
+  # Team Detail
+=================================== */
+.blue-box {
+  background-color: #00bff3;
+  margin: 0;
+  margin-bottom: 20px;
+  padding: 0 15px 0 0;
+  color: #fff;
+}
+.ct-content p.bio-subtitle {
+  padding-top: 0;
+}
+.bio-detail {
+  min-height: inherit;
+  margin-top: 20px;
+}
+.bio-detail .biodescription {
+  padding-bottom: 40px;
+}
+/* ==============================
+  # Media Queries
+============================== */
+@media only screen and (max-width: 767px) {
+  .filter-bar-title-span {
+    float: left;
+  }
+  .location-class,
+  .more-class {
+    display: none;
+  }
+  .name-class,
+  .title-class {
+    width: inherit;
+  }
+  .pic-class {
+    width: 90px;
+  }
+  .input-group-btn button#searchBtn {
+    padding: 1.4rem 2.6rem;
+  }
+  .input-group input#table_filter {
+    height: 43px;
+  }
+}
+@media only screen and (max-width: 480px) {
+  .biodescription,
+  .bioimage {
+    width: 100%;
+  }
+}
+[data-background] {
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+header {
+    overflow: hidden;
+}
+header {
+    position: relative;
+    z-index: 1;
+    display: table;
+    width: 100%;
+}
+.header--type2:before {
+    background-color: rgba(0,0,0,0.45);
+}
+header:before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0,0,0,0.4);
+}
+.ct-page_title .h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    text-transform: inherit;
+    font-size: 81px;
+    font-size: 8.1rem;
+    line-height: 65.85px;
+    letter-spacing: 0px;
+    text-transform: uppercase;
+}
+.ct-page_title {
+    color: #fff;
+}
+.ct-page_title-content {
+    text-transform: capitalize;
+    line-height: 36px;
+}
+.ct-page_title-content {
+    font-size: 25px;
+    font-size: 2.5rem;
+    font-family: 'nimbus-sans', sans-serif;
+    font-weight: 400;
+    padding-top: 10px;
+    padding-top: 1rem;
+    display: inline-block;
+    max-width: 750px;
+    max-width: 75rem;
+}
+.ct-page_title .h1 {
+    font-family: 'Open Sans Condensed', sans-serif;
+    font-weight: bold;
+    font-size: 81px;
+    font-size: 8.1rem;
+    line-height: 65.85px;
+    letter-spacing: 0px;
+    margin-top: 80px;
+}
